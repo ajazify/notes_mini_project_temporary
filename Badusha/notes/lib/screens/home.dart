@@ -51,12 +51,34 @@ class Homepage extends StatelessWidget {
           builder: (context, Box<Note> box, _) {
             if (box.isEmpty) {
               return const Center(
-                child: Text('No notes available'),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      width: 100,
+                      height: 100,
+                      child: Opacity(
+                        opacity: 0.4,
+                        child: Image(
+                          image: AssetImage('assets/image/note.png'),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 20),
+                    Text(
+                      'No notes here yet',
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 15,
+                      ),
+                    ),
+                  ],
+                ),
               );
             }
 
             return Padding(
-              padding: const EdgeInsets.only(left: 8.0, right: 8),
+              padding: const EdgeInsets.only(left: 4.0, right: 4),
               child: GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
